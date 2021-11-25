@@ -33,7 +33,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${eurekaserver:localhost}:8081/eureka/
+      defaultZone: http://eurekaserver:8081/eureka/
 
 management:
   endpoints:

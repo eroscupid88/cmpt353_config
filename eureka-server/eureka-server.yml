@@ -2,7 +2,7 @@ spring:
   application:
     name: eureka-server
 server:
-  port: 7070
+  port: 8081
 eureka:
   renewalPercentThreshold: 0.85
   instance:

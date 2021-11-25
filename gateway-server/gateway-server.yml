@@ -15,23 +15,11 @@ spring:
           lower-case-service-id: true
       routes:
         - id: user-service
-          uri: http://localhost:8080/
+          uri: lb://USER-SERVICE
           predicates:
             - Path=/service/**
           filters:
             - RewritePath=/service/(?<path>.*), /$\{path}
-      # - id: sport-organization-service
-      #   uri: lb://SPORT-ORGANIZATION-SERVICE
-      #   predicates:
-      #     - Path=/organization/**
-      #   filters:
-      #     - RewritePath=/organization/(?<path>.*), /$\{path}
-      # - id: sport-event-service
-      #   uri: lb://SPORT-EVENT-SERVICE
-      #   predicates:
-      #     - Path=/event/**
-      #   filters:
-      #     - RewritePath=/event/(?<path>.*), /$\{path}
       # use service discovery as route
     loadbalancer.ribbon.enabled: false
 
@@ -45,8 +33,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      # defaultZone: http://${eurekaserver:localhost}:7070/eureka/
-      defaultZone: http://eurekaserver:7070/eureka/
+      defaultZone: http://${eurekaserver:localhost}:8081/eureka/
 
 management:
   endpoints:
